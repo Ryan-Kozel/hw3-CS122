@@ -9,7 +9,7 @@ class BankAccount:
 
     def deposit(self, amount):
         """Deposit an amount into an account"""
-        if amount <= 0: #make sure inputed amout is positive
+        if amount <= 0: # make sure inputed amount is positive
             raise InvalidAmountError("Deposit must be positive", 200)
         else:
             self.balance = self.balance + amount
@@ -33,9 +33,9 @@ class SavingAccount(BankAccount):
         """
         
         fee = 2.00
-        if amount < 0: #make sure that withdraw amount is positive
+        if amount < 0:  # make sure that withdraw amount is positive
             raise InvalidAmountError("Deposit must be positive", 200)
-        elif amount + fee > self.balance: #account cannot go into negatives
+        elif amount + fee > self.balance:  # account cannot go into negatives
             raise InsufficientFundsError("Insufficient funds", 201)
         else:
             self.balance = self.initial_balance - amount - fee
@@ -51,9 +51,9 @@ class CheckingAccount(BankAccount):
         Savings accounts have withdraw fee of $1.00
         """
         fee = 1.00
-        if amount < 0: #make sure withdraw amount positive
+        if amount < 0:  # make sure withdraw amount positive
             raise InvalidAmountError("Deposit must be positive", 200)
-        elif amount + fee > self.balance: #account cannot go into negatives
+        elif amount + fee > self.balance:  # account cannot go into negatives
             raise InsufficientFundsError("Insufficient funds", 201)
         else:
             self.balance = self.balance - amount - fee

@@ -12,12 +12,12 @@ class Bank:
         """ 
         Create either a savings account or a checking account depending on account_type
         """
-        #If account with owner's name already exists, print an error message and return False
+        # If account with owner's name already exists, print an error message and return False
         if owner_name in self.accounts:
             print(f"Account: {owner_name} already found")
             return False
         else:
-        #If it does not exist, create it based on specified type
+            # If it does not exist, create it based on specified type
             if account_type.lower() == 'checking':
                 acc = CheckingAccount(owner_name, initial_balance)
                 self.accounts[acc.owner_name] = acc
@@ -48,7 +48,7 @@ class Bank:
         Retrieve the accounts dictionary, returning an empty dictionary if the file does not exist
         """
         with shelve.open(self.shelf) as s:
-            #Get the accounts dictionary, defaut value is an empty dictionary if not found
+            # Get the accounts dictionary, default value is an empty dictionary if not found
             self.accounts = s.get('accounts', {})
             return self.accounts
 
